@@ -74,7 +74,7 @@ The following is a sample Input and Output JSON for this model which you can use
         1
       ],
       "data": [
-"b'iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAIAAAB7GkOtAAEAAElEQVR4nJz9SYIkSZIEiBGziJpHZnXXYPD/f+AFOOE1mOnKjHBTYcKBV7XIvsC7K8PdTFUWXog3WeT/9f/+/+z9g7KN51qiKgTP+xzDm/b3Xz/'"
+"iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAIAAAB7GkOtAAEAAElEQVR4nJz9SYIkSZIEiBGziJpHZnXXYPD/f+AFOOE1mOnKjHBTYcKBV7XIvsC7K8PdTFUWXog3WeT/9f/+/+z9g7KN51qiKgTP+xzDm/b3Xz/"
       ]
     }
   ]
