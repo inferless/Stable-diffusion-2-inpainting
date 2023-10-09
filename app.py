@@ -18,7 +18,10 @@ class InferlessPythonModel:
         )
         self.pipe = self.pipe.to("cuda:0")
 
-    def infer(self, prompt, image_url, mask_url):
+    def infer(self, inputs):
+        prompt = inputs["prompt"]
+        image_url = inputs["image_url"]
+        mask_url = inputs["mask_url"]
         init_image = InferlessPythonModel.download_image(image_url).resize((512, 512))
         mask_image = InferlessPythonModel.download_image(mask_url).resize((512, 512))
         inpaint_image = self.pipe(
