@@ -14,9 +14,9 @@ class InferlessPythonModel:
     def initialize(self):
         self.pipe = StableDiffusionInpaintPipeline.from_pretrained(
             "runwayml/stable-diffusion-inpainting",
-            torch_dtype=torch.float16,
-            device_map="auto",
+            torch_dtype=torch.float16
         )
+        self.pipe.to("cuda:0")
 
     def infer(self, inputs):
         prompt = inputs["prompt"]
