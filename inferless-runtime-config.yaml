@@ -1,5 +1,7 @@
 build:
   cuda_version: "12.1.1"
   python_packages:
-    - "torch==2.1.2"
-    - "vllm==0.3.2"
+    - "transformers==4.44.2"
+    - "torch==2.4.1"
+    - "accelerate==0.34.2"
+    - "diffusers==0.30.2"
