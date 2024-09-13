@@ -16,70 +16,22 @@ Get started by forking the repository. You can do this by clicking on the fork b
 
 This will create a copy of the repository in your own GitHub account, allowing you to make changes and customize it according to your needs.
 
+## Create a Custom Runtime in Inferless
+To access the custom runtime window in Inferless, simply navigate to the sidebar and click on the **Create new Runtime** button. A pop-up will appear.
+
+Next, provide a suitable name for your custom runtime and proceed by uploading the **config.yaml** file given above. Finally, ensure you save your changes by clicking on the save button.
+
+
 ### Import the Model in Inferless
 Log in to your inferless account, select the workspace you want the model to be imported into and click the Add Model button.
 
 Select the PyTorch as framework and choose **Repo(custom code)** as your model source and use the forked repo URL as the **Model URL**.
 
+After the create model step, while setting the configuration for the model make sure to select the appropriate runtime.
+
 Enter all the required details to Import your model. Refer [this link](https://docs.inferless.com/integrations/github-custom-code) for more information on model import.
 
 The following is a sample Input and Output JSON for this model which you can use while importing this model on Inferless.
-
-### Input
-```json
-{
-  "inputs": [
-    {
-      "data": [
-        "Face of a yellow cat, high resolution, sitting on a park bench"
-      ],
-      "name": "prompt",
-      "shape": [
-        1
-      ],
-      "datatype": "BYTES"
-    },
-    {
-      "data": [
-        "https://raw.githubusercontent.com/CompVis/latent-diffusion/main/data/inpainting_examples/overture-creations-5sI6fQgYIuo.png"
-      ],
-      "name": "image_url",
-      "shape": [
-        1
-      ],
-      "datatype": "BYTES"
-    },
-    {
-      "data": [
-        "https://raw.githubusercontent.com/CompVis/latent-diffusion/main/data/inpainting_examples/overture-creations-5sI6fQgYIuo_mask.png"
-      ],
-      "name": "mask_url",
-      "shape": [
-        1
-      ],
-      "datatype": "BYTES"
-    }
-  ]
-}
-```
-
-### Output
-```json
-{
-  "outputs": [
-    {
-      "name": "generated_image_base64",
-      "datatype": "BYTES",
-      "shape": [
-        1
-      ],
-      "data": [
-"iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAIAAAB7GkOtAAEAAElEQVR4nJz9SYIkSZIEiBGziJpHZnXXYPD/f+AFOOE1mOnKjHBTYcKBV7XIvsC7K8PdTFUWXog3WeT/9f/+/+z9g7KN51qiKgTP+xzDm/b3Xz/"
-      ]
-    }
-  ]
-}
-```
 
 ---
 ## Curl Command
@@ -136,9 +88,10 @@ Open the `app.py` file. This contains the main code for inference. It has three 
 ```python
 def infer(self, inputs):
     prompt = inputs["prompt"]
+    image_url = inputs["image_url"]
+    mask_url = inputs["mask_url"]
 ```
 
 **Finalize** - This function is used to perform any cleanup activity for example you can unload the model from the gpu by setting `self.pipe = None`.
-
 
 For more information refer to the [Inferless docs](https://docs.inferless.com/).
