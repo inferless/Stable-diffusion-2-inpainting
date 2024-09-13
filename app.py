@@ -14,7 +14,7 @@ class InferlessPythonModel:
     def initialize(self):
         self.pipe = StableDiffusionInpaintPipeline.from_pretrained(
             "stabilityai/stable-diffusion-2-inpainting",
-            torch_dtype=torch.float16
+            torch_dtype=torch.float16,
             device_map="cuda"
         )
 
