@@ -1,6 +1,6 @@
 version: 1.0.0
 
-name: Starling-LM-7B-alpha-GPTQ
+name: sd-inpainting-model
 import_source: GIT
 
 # you can choose the options between ONNX, TENSORFLOW, PYTORCH
@@ -19,7 +19,7 @@ configuration:
   custom_volume_id: ''
   custom_volume_name: ''
 
-  gpu_type: A100
+  gpu_type: T4
   inference_time: '180'
   is_dedicated: true
   is_serverless: false
@@ -27,8 +27,8 @@ configuration:
   min_replica: '0'
   scale_down_delay: '600'
   region: region-2
-  vcpu: '20.0'
-  ram: '200'
+  vcpu: '3'
+  ram: '20'
 env:
   # Add your environment variables here
   # ENV: 'PROD'
@@ -40,6 +40,6 @@ optional:
   input_file_name: input.json
   output_file_name: output.json
   runtime_file_name: inferless-runtime-config.yaml
-model_url: https://github.com/inferless/Starling-LM-7B-alpha-GPTQ.git
+model_url: https://github.com/inferless/sd-inpainting-model.git
 provider: GITHUB
 io_schema: true
