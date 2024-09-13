@@ -5,18 +5,18 @@ import base64
 from io import BytesIO
 from diffusers import StableDiffusionInpaintPipeline
 
-
 class InferlessPythonModel:
+    @staticmethod
     def download_image(url):
         response = requests.get(url)
         return PIL.Image.open(BytesIO(response.content)).convert("RGB")
 
     def initialize(self):
         self.pipe = StableDiffusionInpaintPipeline.from_pretrained(
-            "runwayml/stable-diffusion-inpainting",
+            "stabilityai/stable-diffusion-2-inpainting",
             torch_dtype=torch.float16
+            device_map="cuda"
         )
-        self.pipe.to("cuda:0")
 
     def infer(self, inputs):
         prompt = inputs["prompt"]
