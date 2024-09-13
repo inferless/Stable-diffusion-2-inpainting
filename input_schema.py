@@ -3,7 +3,7 @@ INPUT_SCHEMA = {
         'datatype': 'STRING',
         'required': True,
         'shape': [1],
-        'example': [""a black cat with glowing eyes, cute, adorable, disney, pixar, highly detailed, 8k"]
+        'example': ["a black cat with glowing eyes, cute, adorable, disney, pixar, highly detailed, 8k"]
     },
     "img_url": {
         'datatype': 'STRING',
